@@ -2,7 +2,22 @@ def intersection(arrays):
     """
     YOUR CODE HERE
     """
-    # Your code here
+    master = []
+    cache = {}
+    result = []
+
+    # create one array from all existing arrays
+    for arr in arrays:
+        master.extend(arr)
+    for num in master:
+        if num in cache:
+            cache[num] += 1
+        else:
+            cache[num] = 1
+        
+        # the numbers were looking for will = as many lists as we have and thats the overlap
+        if cache[num] >= len(arrays):
+            result.append(num)
 
     return result
 
